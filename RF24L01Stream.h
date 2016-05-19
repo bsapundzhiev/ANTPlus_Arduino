@@ -8,7 +8,7 @@ class RF24L01Stream: public Stream   {
 
   private:
     RF24 radio;
-    uint8_t *address; //pipe address
+    //uint8_t *address; //pipe address
     uint8_t data;
 
   public:
@@ -20,11 +20,13 @@ class RF24L01Stream: public Stream   {
     RF24L01Stream(uint8_t _cepin, uint8_t _cspin, uint32_t spispeed );
     RF24L01Stream(uint8_t _cepin, uint8_t _cspin);
 
-    void begin(uint8_t * pipe, int role);
+    void begin(uint8_t role);
 
     int available();
     int read();
     int peek();
     void flush();
-    size_t write(uint8_t bytes);
+    size_t write(uint8_t byte0);
+    
+    inline RF24 &getRF24() { return radio; }
 };

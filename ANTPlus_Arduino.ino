@@ -44,7 +44,7 @@ static ANT_Channel hrm_channel =
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
-  RF24Stream.begin(hrm_channel.ant_net_key, RF24L01Stream::PipeType::Read);
+  RF24Stream.begin(RF24L01Stream::PipeType::Read);
   antplus.begin(RF24Stream);
 }
 
